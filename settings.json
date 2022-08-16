@@ -1,0 +1,15 @@
+{
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "typescript": "clear | npx ts-node"
+  },
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.runInTerminal": true,
+  "errorLens.onSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript"
+  ]
+}

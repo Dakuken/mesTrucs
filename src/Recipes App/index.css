@@ -1,0 +1,29 @@
+.task {
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+
+    height: 50px;
+    width: 250px;
+    margin-top: 10px;
+    padding: 5px;
+
+    background-color: #222222;
+    color: #FFFFFF;
+}
+
+.task:hover {
+    background-color: #1c1c1c;
+}
+
+.deleteButton {
+    background-image: url('./croix1.png');
+    background-size: contain;
+    opacity: 0.7;
+    width: 50px;
+    height: 50px;
+}
+
+.deleteButton:hover {
+    opacity: 1;
+}
