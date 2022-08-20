@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .task {
     display: flex;
     justify-items: center;
@@ -26,4 +31,12 @@
 
 .deleteButton:hover {
     opacity: 1;
+}
+
+.merde {
+    background-color: #1e293b;
+}
+
+.click {
+    cursor: pointer;
 }
