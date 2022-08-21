@@ -15,10 +15,10 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "import/no-extraneous-dependencies":0,
-        "no-underscore-dangle":0,
-        "default-param-last":0,
-        "max-len":0,
+        "import/no-extraneous-dependencies": 0,
+        "no-underscore-dangle": 0,
+        "default-param-last": 0,
+        "max-len": 0,
         "for-direction": 0,
         "import/no-unresolved": 0,
         "import/extensions": 0,
@@ -38,10 +38,7 @@
             "error",
             4
         ], // nb espace par indent
-        "max-classes-per-file": [
-            "error",
-            3
-        ], // max de classe par fichier
+        "max-classes-per-file": 0, // max de classe par fichier
         "no-console": "off", // a remove pour les console.log()
         "no-mixed-spaces-and-tabs": 0, //pas mélanger space et tab
         "linebreak-style": 0, //empecher le bug quand on change de linux/ window
