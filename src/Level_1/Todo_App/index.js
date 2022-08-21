@@ -1,4 +1,3 @@
-"use strict";
 document.querySelector('#Add').addEventListener('click', () => {
     addTask();
 });
