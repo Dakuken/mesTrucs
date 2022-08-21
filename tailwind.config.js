@@ -2,13 +2,13 @@
 /* eslint-disable indent */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/Recipes_App/index.html'],
+  content: ['./src/Recipes_App/index.html', './src/RockPaperScissorsGame/index.html'],
   theme: {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
   ],
   darkMode: 'class',
 };

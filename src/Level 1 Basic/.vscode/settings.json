@@ -1,0 +1,13 @@
+{
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "typescript": "npx ts-node",
+  },
+  "code-runner.runInTerminal": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript"
+  ]
+}

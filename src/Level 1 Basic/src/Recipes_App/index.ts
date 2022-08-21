@@ -1,3 +1,4 @@
+/* eslint-disable space-unary-ops */
 /* eslint-disable no-new */
 
 // ? ---------------- Recipe API ------------------ //
@@ -16,6 +17,15 @@ const getRecipe = (name: string) => new Promise((resolve, reject) => {
         .then((json) => resolve(json))
         .catch((error) => reject(error));
 });
+
+const detailRecipe = (id: string) => new Promise(
+    (resolve, reject) => {
+        fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`, optionsRecipe)
+            .then((response) => response.json())
+            .then((json) => resolve(json))
+            .catch((err) => reject(err));
+    },
+);
 
 // ? ---------------- Google API ------------------ //
 
@@ -36,20 +46,28 @@ const getImage = (name: string) => new Promise((resolve, reject) => {
 
 // ? ---------------- Classes Array ------------------ //
 
-const cardClasses: string[] = ['bg-slate-700', 'rounded', 'pb-1', 'w-full', 'click'];
+const cardClasses: string[] = ['bg-slate-700', 'rounded', 'pb-1', 'w-full', 'click', 'recipe'];
 
 const imgCardClasses: string[] = ['w-full', 'object-cover', 'rounded', 'lg:h-48', 'h-96'];
 
 const paraphCardClasses: string[] = ['flex', 'justify-center'];
 
+let alreadyAdd: string[] = [];
+
 // ? ---------------- Search Recipe ------------------ //
 
 function search() {
+    alreadyAdd = [];
+    deleteBefore();
     let text = (<HTMLInputElement>document.querySelector('#recipeInput')).value;
     getRecipe(text).then((data) => showResult(data))
         .catch((error) => console.log(error.message));
 }
 
+function deleteBefore() {
+    let list = <HTMLDivElement>document.querySelector('#recipesList');
+    let nbchild = list.childNodes;
+}
 // ? ---------------- Show recipe ------------------ //
 
 function showResult(data: any) {
@@ -57,11 +75,24 @@ function showResult(data: any) {
     array.forEach((recipe: any, index: any) => {
         setTimeout(() => {
             createCard(recipe);
+            if (index === array.length - 1) {
+                console.log(alreadyAdd);
+
+                RecipeSelector();
+            }
         }, index * 500);
     });
 }
 
 function createCard(recipe: any) {
+    for (let i = 0; i <= alreadyAdd.length - 1; i++) {
+        if (alreadyAdd[i] === recipe.title) {
+            console.log('skdj,lskdfj');
+
+            return;
+        }
+    }
+
     let div = <HTMLDivElement>document.createElement('div');
     cardClasses.forEach((classe) => {
         div.classList.add(classe);
@@ -70,16 +101,27 @@ function createCard(recipe: any) {
 
     let p = document.createElement('p');
     p.textContent = recipe.title;
+    alreadyAdd.push(recipe.title);
     paraphCardClasses.forEach((classe) => {
         p.classList.add(classe);
     });
 
     div.append(p);
-    let name = recipe.title.split(' ').join('%20');
 
-    getImage(name).then((data) => createImageCard(div, data))
-        .catch((error) => errorImage(error.message));
+    let img = document.createElement('img');
+    imgCardClasses.forEach((element) => {
+        img.classList.add(element);
+    });
+    img.src = recipe.image;
+    div.prepend(img);
+    (<HTMLDivElement>document.querySelector('#recipesList')).append(div);
 }
+
+// let name = recipe.title.split(' ').join('%20');
+
+// getImage(name).then((data) => createImageCard(div, data))
+//     .catch((error) => errorImage(error.message));
+// }
 
 function createImageCard(div: HTMLDivElement, name: any) {
     let img = document.createElement('img');
@@ -93,7 +135,6 @@ function createImageCard(div: HTMLDivElement, name: any) {
 
 function errorImage(bite: string) {
     console.log(bite);
-    console.log('smpfelk');
 }
 
 (<HTMLButtonElement>document.querySelector('#search')).addEventListener('click', () => {
@@ -105,3 +146,15 @@ function errorImage(bite: string) {
         search();
     }
 });
+
+function RecipeSelector() {
+    (document.querySelectorAll('.recipe')).forEach((element) => {
+        element.addEventListener('click', () => {
+            showRecipe(<HTMLDivElement>element);
+        });
+    });
+}
+
+function showRecipe(div: HTMLDivElement) {
+    let { id } = div;
+}

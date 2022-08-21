@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html class="dark h-full bg-gray-50 dark:bg-slate-800 merde">
+
+
+<!-- a refaire en angular ou react, 1000 fois mieux -->
+
+<head>
+    <title>Rock Paper Scissors Game</title>
+    <link type="text/css" rel="stylesheet" href="./output.css">
+</head>
+
+<body class="dark:bg-slate-800 dark:text-white ">
+
+    <div class="grid grid-cols-3 gap-7 m-8" id="recipesList">
+        <div class=" hover:bg-violet-600 w-full flex items-center flex-col text-8xl h-64 justify-center cursor-pointer player" id="rock">
+            <p>Rock</p>
+            <p class="mt-4">✊</p>
+        </div>
+        <div class=" hover:bg-violet-600 w-full flex items-center flex-col text-8xl h-64 justify-center cursor-pointer player" id="paper">
+            <p>Paper</p>
+            <p class="pt-4">✋</p>
+        </div>
+        <div class=" hover:bg-violet-600 w-full flex items-center flex-col text-8xl h-64 justify-center cursor-pointer player" id="scissors">
+            <p>Scissors</p>
+            <p class="pt-4">✌</p>
+        </div>
+    </div>
+    <div class="grid grid-cols-3 gap-7 m-8 mt-16" id="recipesList">
+
+        <div class="pr-48">
+            <p class="text-6xl  flex justify-end">Win :ﾠ<span id="Win">0</span></p>
+            <p class="text-6xl  flex justify-end">Lose :ﾠ<span id="Lose">0</span></p>
+            <p class="text-6xl flex justify-end">Total :ﾠ<span id="Total">0</span></p>
+        </div>
+        <p class="text-8xl flex justify-center" id="winner">Choose</p>
+        <p class="text-8xl  flex justify-center"></p>
+    </div>
+
+    <p class="text-8xl mt-24 flex justify-center">Enemy :</p>
+    <p class="text-8xl mt-24 flex justify-center" id="iaChoose">?</p>
+
+
+</body>
+
+<script src="./index.js"></script>
+
+</html>
