@@ -2,7 +2,7 @@
 /* eslint-disable indent */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/Recipes_App/index.html', './src/RockPaperScissorsGame/index.html'],
+  content: ['./src/index.html'],
   theme: {
     extend: {},
   },
