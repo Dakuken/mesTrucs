@@ -1,12 +1,17 @@
 <!DOCTYPE html>
+<html class="h-full">
+
 
 <head>
     <title>Space Invaders</title>
     <link type="text/css" rel="stylesheet" href="./output.css">
 </head>
 
-<body>
-    <canvas></canvas>
+<body class="flex justify-center items-center h-full bg-black">
+    <div class="relative">
+        <p class="absolute z-10 text-white text-xl left-5 top-5"><span>Score:</span> <span id="scoreEl">0</span></p>
+        <canvas></canvas>
+    </div>
 </body>
 
 <script src="./index.js"></script>
